@@ -42,6 +42,25 @@ sudo ufw disable
 ```
 Be aware that this command will fully disable the firewall service on your system.
 
+**UFW Default Firewall Policies**
+If you're getting started with UFW for the first time, it is a good idea to double-check the default firewall policies. To do so check the default configuration file of UFW:
+```
+nano /etc/default/ufw
+```
+By default, UFW is configured to deny all incoming traffic and allow all outgoing traffic. This means that nobody is able to reach your system, while you can make outgoing requests from any application or service.
+The default UFW policies can be changed with the following command pattern:
+```
+ufw default <policy> <chain>
+```
+For instance, if you want to allow all incoming traffic use the following command:
+```
+ufw default allow incoming
+```
+While the following command will deny all outgoing traffic:
+```
+ufw default deny outgoing
+```
+
 **Block an IP Address**
 To block all network connections that originate from a specific IP address, run the following command, replacing the highlighted IP address with the IP address that you want to block:
 ```
